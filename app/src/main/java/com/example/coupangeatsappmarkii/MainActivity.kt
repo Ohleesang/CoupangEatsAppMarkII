@@ -26,6 +26,15 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
+        // 네비게이션 동작할떄 라벨 및 이미지 사라지게 않게하기
+
+        // 텍스트뷰 굵기 조정
+        navView.setItemTextAppearanceActiveBoldEnabled(false)
+
+        // 틴트를 널값으로주기
+        navView.setItemIconTintList(null)
+
+
         // 더미데이터 생성
         InstanceData.setDummyDataMenu(this,"dummy_data_menu.xlsx")
 
