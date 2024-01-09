@@ -1,10 +1,13 @@
 package com.example.coupangeatsappmarkii.fragment
 
+import MenuAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.coupangeatsappmarkii.data.InstanceData
 import com.example.coupangeatsappmarkii.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -23,6 +26,13 @@ class SearchFragment : Fragment() {
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val menuRecyclerView = binding.rvSearchFragment
+        menuRecyclerView.layoutManager = GridLayoutManager(this.context,3)
+
+        val adapter = MenuAdapter(InstanceData.menuList)
+        menuRecyclerView.adapter = adapter
+
 
         return root
     }
