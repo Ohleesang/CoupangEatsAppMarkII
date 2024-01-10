@@ -39,25 +39,19 @@
 
     </androidx.appcompat.widget.SearchView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_menu"
-        android:layout_width="0dp"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gl_menu"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:columnCount="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ad"
-        app:layout_constraintDimensionRatio="1:0.4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_menu" />
+
+    </androidx.gridlayout.widget.GridLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,9 +7,11 @@
 
     <ImageView
         android:id="@+id/iv_menu"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:clipToOutline="true"
         android:scaleType="fitCenter"
+        app:layout_constraintDimensionRatio="1:0.8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +21,11 @@
         android:id="@+id/tv_menu_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:text="name"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_menu" />
