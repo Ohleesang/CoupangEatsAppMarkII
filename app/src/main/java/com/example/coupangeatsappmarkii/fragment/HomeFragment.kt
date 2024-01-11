@@ -20,9 +20,6 @@ class HomeFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    //by lazy는 안되고 왜 이건 되는거지????????
-    private lateinit var gridLayout: GridLayout
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,32 +42,37 @@ class HomeFragment : Fragment() {
 
     private fun onCreateGridLayout() {
         val layoutInflater = LayoutInflater.from(context)
-        gridLayout = binding.glMenu
+        val gridLayout = binding.glMenu
+        var childBinding: LayoutMenuBinding
         //0~9 까지 메뉴 인스턴스 출력
         for (idx in 0..8) {
-            val childBinding = LayoutMenuBinding.inflate(layoutInflater)
+            childBinding = LayoutMenuBinding.inflate(layoutInflater)
 
             InstanceData.menuList[idx].run {
-                childBinding.ivMenu.setImageResource(imgRes)
-                childBinding.tvMenuName.text = name
+                childBinding.run {
+                    ivMenu.setImageResource(imgRes)
+                    tvMenuName.text = name
+                }
                 gridLayout.addView(childBinding.root)
             }
         }
-        //버튼 추가
-        val childBinding = LayoutMenuBinding.inflate(layoutInflater)
-        childBinding.ivMenu.setImageResource(R.drawable.btn_see_more)
-        childBinding.tvMenuName.text = "더보기"
+
+        // 버튼 추가
+        childBinding = LayoutMenuBinding.inflate(layoutInflater)
+        childBinding.run {
+            ivMenu.setImageResource(R.drawable.btn_see_more)
+            childBinding.tvMenuName.text = "더보기"
+        }
+
         val buttonImageView = childBinding.root
         gridLayout.addView(buttonImageView)
-
-
 
         //버튼 이벤트
         buttonImageView.setOnClickListener {
             gridLayout.removeAllViews()
             for (menu in InstanceData.menuList) {
-                val childBinding = LayoutMenuBinding.inflate(layoutInflater)
-                menu.run{
+                childBinding = LayoutMenuBinding.inflate(layoutInflater)
+                menu.run {
                     childBinding.ivMenu.setImageResource(imgRes)
                     childBinding.tvMenuName.text = name
                     gridLayout.addView(childBinding.root)
