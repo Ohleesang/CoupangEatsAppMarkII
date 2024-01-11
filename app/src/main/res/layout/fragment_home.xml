@@ -58,7 +58,7 @@
             </androidx.gridlayout.widget.GridLayout>
 
             <TextView
-                android:id="@+id/tv_recommand_rest"
+                android:id="@+id/tv_recommend_rest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
@@ -68,7 +68,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_recommand_rest"
+                android:id="@+id/rv_recommend_rest"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

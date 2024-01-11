@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.gridlayout.widget.GridLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coupangeatsappmarkii.R
+import com.example.coupangeatsappmarkii.RecommendRestAdapter
+import com.example.coupangeatsappmarkii.RestAdapter
 import com.example.coupangeatsappmarkii.data.InstanceData
 import com.example.coupangeatsappmarkii.databinding.FragmentHomeBinding
 import com.example.coupangeatsappmarkii.databinding.LayoutMenuBinding
@@ -28,10 +28,24 @@ class HomeFragment : Fragment() {
     ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
+        //메뉴 부분
         onCreateGridLayout()
 
-        return binding.root
+        //추천 맛집 부분
+        binding.rvRecommendRest.run{
+            layoutManager =LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            adapter = RecommendRestAdapter(InstanceData.restList)
+        }
+
+        //골라 먹는 맛집 부분
+        binding.rvRest.run{
+            layoutManager = LinearLayoutManager(context)
+            adapter = RestAdapter(InstanceData.restList)
+        }
+
+        return root
     }
 
 
