@@ -1,4 +1,4 @@
-package com.example.coupangeatsappmarkii.fragment
+package com.example.coupangeatsappmarkii.searchFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.coupangeatsappmarkii.MenuAdapter
 import com.example.coupangeatsappmarkii.data.InstanceData
 import com.example.coupangeatsappmarkii.databinding.FragmentSearchBinding
 

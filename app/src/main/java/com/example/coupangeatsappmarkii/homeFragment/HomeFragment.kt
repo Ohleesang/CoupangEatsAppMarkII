@@ -1,4 +1,4 @@
-package com.example.coupangeatsappmarkii.fragment
+package com.example.coupangeatsappmarkii.homeFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coupangeatsappmarkii.R
-import com.example.coupangeatsappmarkii.RecommendRestAdapter
-import com.example.coupangeatsappmarkii.RestAdapter
 import com.example.coupangeatsappmarkii.data.InstanceData
 import com.example.coupangeatsappmarkii.databinding.FragmentHomeBinding
-import com.example.coupangeatsappmarkii.databinding.LayoutMenuBinding
+import com.example.coupangeatsappmarkii.databinding.LayoutFragmentHomeMenuBinding
+
 
 
 class HomeFragment : Fragment() {
@@ -57,10 +56,10 @@ class HomeFragment : Fragment() {
     private fun onCreateGridLayout() {
         val layoutInflater = LayoutInflater.from(context)
         val gridLayout = binding.glMenu
-        var childBinding: LayoutMenuBinding
+        var childBinding: LayoutFragmentHomeMenuBinding
         //0~9 까지 메뉴 인스턴스 출력
         for (idx in 0..8) {
-            childBinding = LayoutMenuBinding.inflate(layoutInflater)
+            childBinding = LayoutFragmentHomeMenuBinding.inflate(layoutInflater)
 
             InstanceData.menuList[idx].run {
                 childBinding.run {
@@ -72,9 +71,10 @@ class HomeFragment : Fragment() {
         }
 
         // 버튼 추가
-        childBinding = LayoutMenuBinding.inflate(layoutInflater)
+        childBinding = LayoutFragmentHomeMenuBinding.inflate(layoutInflater)
         childBinding.run {
-            ivMenu.setImageResource(R.drawable.btn_see_more)
+            ivMenu.setImageResource(R.drawable.ic_down_arrow_btn)
+
             childBinding.tvMenuName.text = "더보기"
         }
 
@@ -85,7 +85,7 @@ class HomeFragment : Fragment() {
         buttonImageView.setOnClickListener {
             gridLayout.removeAllViews()
             for (menu in InstanceData.menuList) {
-                childBinding = LayoutMenuBinding.inflate(layoutInflater)
+                childBinding = LayoutFragmentHomeMenuBinding.inflate(layoutInflater)
                 menu.run {
                     childBinding.ivMenu.setImageResource(imgRes)
                     childBinding.tvMenuName.text = name
