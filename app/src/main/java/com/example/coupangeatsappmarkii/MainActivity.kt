@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 더미데이터 생성
+        InstanceData.setDummyDataMenu(this,"dummy_data_menu.xlsx")
+        InstanceData.setDummyDataRest(this,"dummy_data_rest.xlsx")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,8 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        // 더미데이터 생성
-        InstanceData.setDummyDataMenu(this,"dummy_data_menu.xlsx")
 
 
 

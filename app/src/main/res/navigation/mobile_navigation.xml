@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.coupangeatsappmarkii.fragment.HomeFragment"
+        android:name="com.example.coupangeatsappmarkii.homeFragment.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.coupangeatsappmarkii.fragment.SearchFragment"
+        android:name="com.example.coupangeatsappmarkii.searchFragment.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 

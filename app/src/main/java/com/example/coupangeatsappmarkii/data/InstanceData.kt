@@ -8,7 +8,7 @@ import java.io.InputStream
 
 object InstanceData {
     val menuList = mutableListOf<Menu>()
-
+    val restList = mutableListOf<Rest>()
 
     //xlsx 파일 데이터 저장
     private fun setDummyData(context: Context, fileName: String): MutableList<List<String>> {
@@ -63,5 +63,29 @@ object InstanceData {
 
         }
 
+    }
+
+    fun setDummyDataRest(context: Context, fileName: String) {
+        val data = setDummyData(context, fileName)
+        data.forEach { row ->
+            // 1. 가게 이름 ,2. 배달 시간 3.별점(리뷰수) 4. 배달 거리
+            val restName = row[0]
+            val time = row[1] +"분"
+            val score = row[2]
+            val distance = row[3] +" km"
+
+            // 2. 이미지 소스
+            val mainImgResId =
+                context.resources.getIdentifier(row[4], "drawable", context.packageName)
+            val subImgResId1 =
+                context.resources.getIdentifier(row[5], "drawable", context.packageName)
+            val subImgResId2 =
+                context.resources.getIdentifier(row[6], "drawable", context.packageName)
+
+            val rest =
+                Rest(restName, time, score, distance, mainImgResId, subImgResId1, subImgResId2)
+            restList.add(rest)
+
+        }
     }
 }

@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.SearchFragment">
+    tools:context=".searchFragment.SearchFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_height="0dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
+        android:paddingBottom="5dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/layout_search_toolbar" />
+        <include layout="@layout/layout_toolbar_search" />
 
     </androidx.appcompat.widget.Toolbar>
 

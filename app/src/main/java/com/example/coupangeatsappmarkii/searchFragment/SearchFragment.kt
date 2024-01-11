@@ -1,4 +1,4 @@
-package com.example.coupangeatsappmarkii.fragment
+package com.example.coupangeatsappmarkii.searchFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,24 +14,24 @@ class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val menuRecyclerView = binding.rvSearchFragment
-        menuRecyclerView.layoutManager = GridLayoutManager(this.context,3)
 
-        val adapter = MenuAdapter(InstanceData.menuList)
-        menuRecyclerView.adapter = adapter
+        //메뉴 목록 보여 주기
+        binding.rvSearchFragment.run {
+            layoutManager = GridLayoutManager(context, 3)
+            adapter = MenuAdapter(InstanceData.menuList)
+
+        }
 
 
         return root
