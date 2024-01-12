@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         val layoutInflater = LayoutInflater.from(context)
         val gridLayout = binding.glMenu
         var childBinding: LayoutFragmentHomeMenuBinding
-        //0~9 까지 메뉴 인스턴스 출력
+        //0~8 까지 메뉴 인스턴스 출력
         for (idx in 0..8) {
             childBinding = LayoutFragmentHomeMenuBinding.inflate(layoutInflater)
 
