@@ -5,7 +5,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.coupangeatsappmarkii.data.InstanceData
+import com.example.coupangeatsappmarkii.data.DummyData
 import com.example.coupangeatsappmarkii.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // 더미데이터 생성
-        InstanceData.setDummyDataMenu(this,"dummy_data_menu.xlsx")
-        InstanceData.setDummyDataRest(this,"dummy_data_rest.xlsx")
+        DummyData.setDummyDataMenu(this,"dummy_data_menu.xlsx")
+        DummyData.setDummyDataRest(this,"dummy_data_rest.xlsx")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

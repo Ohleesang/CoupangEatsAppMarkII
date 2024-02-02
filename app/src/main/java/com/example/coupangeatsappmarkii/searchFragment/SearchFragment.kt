@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.coupangeatsappmarkii.data.InstanceData
+import com.example.coupangeatsappmarkii.data.DummyData
+import com.example.coupangeatsappmarkii.data.ListItem
 import com.example.coupangeatsappmarkii.databinding.FragmentSearchBinding
+import com.example.coupangeatsappmarkii.homeFragment.MenuAdapter
 
 class SearchFragment : Fragment() {
 
@@ -15,6 +17,7 @@ class SearchFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private val menuAdapter = MenuAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,16 +29,17 @@ class SearchFragment : Fragment() {
 
 
         //메뉴 목록 보여 주기
-        binding.rvSearchFragment.run {
+        binding.rvSearchFragment.apply {
             layoutManager = GridLayoutManager(context, 3)
-            adapter = MenuAdapter(InstanceData.menuList)
-
+            adapter = menuAdapter
         }
-
 
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        menuAdapter.submitList(ListItem.MenuList(DummyData.menuList).menus)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

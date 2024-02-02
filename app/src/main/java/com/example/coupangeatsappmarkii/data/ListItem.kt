@@ -6,9 +6,28 @@ import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.InputStream
 
-object InstanceData {
-    val menuList = mutableListOf<Menu>()
-    val restList = mutableListOf<Rest>()
+sealed class ListItem {
+    data class MenuList(val menus: List<Menu>) : ListItem()
+    data class RestList(val rests: List<Rest>) : ListItem()
+    data class Title(val name : String) :ListItem()
+    data class Menu(val imgRes: Int, val name: String) : ListItem()
+    data class Rest(
+        val name: String,
+        val time: String,
+        val score: String,
+        val distance: String,
+        val mainImgRes: Int,
+        val subImgRes1: Int,
+        val subImgRes2: Int,
+    ) : ListItem()
+
+    data object Search : ListItem()
+
+}
+
+object DummyData {
+    var menuList = mutableListOf<ListItem.Menu>()
+    var restList = mutableListOf<ListItem.Rest>()
 
     //xlsx 파일 데이터 저장
     private fun setDummyData(context: Context, fileName: String): MutableList<List<String>> {
@@ -58,7 +77,7 @@ object InstanceData {
             val menuName = row[1]
 
             // 인스턴스 생성 이후 값넣기
-            val menu = Menu(resId, menuName)
+            val menu = ListItem.Menu(resId, menuName)
             menuList.add(menu)
 
         }
@@ -83,7 +102,15 @@ object InstanceData {
                 context.resources.getIdentifier(row[6], "drawable", context.packageName)
 
             val rest =
-                Rest(restName, time, score, distance, mainImgResId, subImgResId1, subImgResId2)
+                ListItem.Rest(
+                    restName,
+                    time,
+                    score,
+                    distance,
+                    mainImgResId,
+                    subImgResId1,
+                    subImgResId2
+                )
             restList.add(rest)
 
         }
