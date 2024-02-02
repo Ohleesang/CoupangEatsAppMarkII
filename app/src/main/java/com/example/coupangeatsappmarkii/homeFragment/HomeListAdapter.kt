@@ -94,7 +94,7 @@ class HomeListAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(DIFF_CALL
         private val recyclerView = binding.rvMenu
         val menuAdapter = MenuAdapter()
         init{
-            recyclerView.layoutManager = GridLayoutManager(recyclerView.context,3)
+            recyclerView.layoutManager = GridLayoutManager(recyclerView.context,5)
             recyclerView.adapter = menuAdapter
         }
     }
